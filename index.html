@@ -100,9 +100,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
                 <div class="mb-12 lg:mb-0" data-aos="fade-right">
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-blackflare leading-tight mb-6">
-                        Find Peace & <br>
-                        <span class="text-gradient-gold">Heal Your Mind.</span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-blackflare leading-tight mb-6 min-h-[96px] sm:min-h-[112px] lg:min-h-[136px]">
+                        <span id="typed-hero"></span>
                     </h1>
                     <p class="text-base sm:text-lg text-gray-600 mb-8 max-w-lg leading-relaxed">
                         MindUP is a dedicated consultation center helping individuals overcome Anxiety and Post
@@ -343,9 +342,9 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-blackflare">Client Stories</h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="reviews-container">
                 <!-- Review 1 -->
-                <div class="flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                <div class="review-item flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
                     <p class="text-gray-600 mb-6 italic leading-relaxed">"MindUP completely changed my perspective. The
                         natural environment approach combined with their understanding of PTSD symptoms finally gave me
                         the tools to cope. I feel like I have my life back."</p>
@@ -362,7 +361,7 @@
                 </div>
 
                 <!-- Review 2 -->
-                <div class="flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+                <div class="review-item flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
                     <p class="text-gray-600 mb-6 italic leading-relaxed">"The therapists here truly listen. Before
                         finding MindUP, my anxiety was unmanageable. The structured consultation menu let me pick a
                         schedule that wasn't overwhelming, and the results are undeniable."</p>
@@ -379,7 +378,7 @@
                 </div>
 
                 <!-- Review 3 -->
-                <div class="flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+                <div class="review-item flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
                     <p class="text-gray-600 mb-6 italic leading-relaxed">"A modern, clean, and friendly center. I felt
                         authority and warmth from the moment I walked in. They mapped out a clear treatment plan for my
                         trauma that made the healing process feel achievable."</p>
@@ -394,6 +393,57 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Review 4 -->
+                <div class="review-item flex flex-col justify-between hidden" data-aos="fade-up" data-aos-delay="100">
+                    <p class="text-gray-600 mb-6 italic leading-relaxed">"The nature walks combined with therapy sessions have been life-changing. I never realized how much being outdoors could help calm my racing thoughts. MindUP is truly a sanctuary."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4 overflow-hidden">
+                            <img src="https://ui-avatars.com/api/?name=David+C&background=e2711d&color=fff" alt="Avatar"
+                                class="w-full h-full">
+                        </div>
+                        <div>
+                            <h4 class="text-blackflare font-bold text-sm">David Chen</h4>
+                            <p class="text-gray-500 text-xs">Therapy Sessions</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="review-item flex flex-col justify-between hidden" data-aos="fade-up" data-aos-delay="200">
+                    <p class="text-gray-600 mb-6 italic leading-relaxed">"Highly recommend their PTSD workshop. Being surrounded by people who understand exactly what I'm going through, guided by expert therapists, has been invaluable."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4 overflow-hidden">
+                            <img src="https://ui-avatars.com/api/?name=Robert+F&background=ffdd00&color=212529" alt="Avatar"
+                                class="w-full h-full">
+                        </div>
+                        <div>
+                            <h4 class="text-blackflare font-bold text-sm">Robert Fox</h4>
+                            <p class="text-gray-500 text-xs">PTSD Workshop</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 6 -->
+                <div class="review-item flex flex-col justify-between hidden" data-aos="fade-up" data-aos-delay="300">
+                    <p class="text-gray-600 mb-6 italic leading-relaxed">"Finding MindUP was a turning point. The initial assessment was so thorough and they explained my anxiety triggers in a way that finally made sense to me."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4 overflow-hidden">
+                            <img src="https://ui-avatars.com/api/?name=Jessica+A&background=212529&color=fff" alt="Avatar"
+                                class="w-full h-full">
+                        </div>
+                        <div>
+                            <h4 class="text-blackflare font-bold text-sm">Jessica Alba</h4>
+                            <p class="text-gray-500 text-xs">Initial Assessment</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination Controls -->
+            <div class="flex justify-center mt-12 space-x-3" id="reviews-pagination">
+                <button class="w-10 h-10 rounded-full bg-gold1 text-white font-bold shadow-md transition-colors hover:bg-gold1 hover:text-white">1</button>
+                <button class="w-10 h-10 rounded-full bg-gray-200 text-blackflare font-bold transition-colors hover:bg-gold1 hover:text-white">2</button>
             </div>
         </div>
     </section>
@@ -504,6 +554,9 @@
 
     <!-- AOS Animation JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Typed.js for Typing Animation -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
     <!-- Main JavaScript -->
     <script src="script.js"></script>

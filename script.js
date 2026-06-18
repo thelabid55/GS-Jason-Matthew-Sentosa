@@ -70,3 +70,51 @@ AOS.init({
     once: true,
     offset: 100,
 });
+
+// Typing Animation for Hero Title
+if (document.getElementById('typed-hero')) {
+    new Typed('#typed-hero', {
+        strings: ['Find Peace &amp; <br><span class="text-gradient-gold">Heal Your Mind.</span>'],
+        typeSpeed: 50,
+        startDelay: 2200, // Wait for the 2s loading screen to finish + 200ms
+        showCursor: true,
+        cursorChar: '|',
+        contentType: 'html'
+    });
+}
+
+// Reviews Pagination
+document.addEventListener('DOMContentLoaded', () => {
+    const paginationContainer = document.getElementById('reviews-pagination');
+    if (!paginationContainer) return;
+    
+    const buttons = paginationContainer.querySelectorAll('button');
+    buttons.forEach((btn, idx) => {
+        btn.addEventListener('click', () => {
+            const pageNumber = idx + 1;
+            const reviews = document.querySelectorAll('.review-item');
+            const itemsPerPage = 3;
+            
+            reviews.forEach((review, index) => {
+                review.classList.add('hidden');
+                if (index >= (pageNumber - 1) * itemsPerPage && index < pageNumber * itemsPerPage) {
+                    review.classList.remove('hidden');
+                    // Retrigger AOS animation
+                    review.classList.remove('aos-animate');
+                    setTimeout(() => {
+                        review.classList.add('aos-animate');
+                    }, 50);
+                }
+            });
+
+            // Update buttons
+            buttons.forEach(b => {
+                b.classList.remove('bg-gold1', 'text-white', 'shadow-md');
+                b.classList.add('bg-gray-200', 'text-blackflare');
+            });
+            
+            btn.classList.remove('bg-gray-200', 'text-blackflare');
+            btn.classList.add('bg-gold1', 'text-white', 'shadow-md');
+        });
+    });
+});
