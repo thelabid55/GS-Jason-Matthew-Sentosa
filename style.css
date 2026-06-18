@@ -1,0 +1,68 @@
+/* ===================================
+   MindUP - Custom Styles
+   =================================== */
+
+/* Custom Pug Cursor */
+* {
+    cursor: url('https://img.icons8.com/color/32/pug.png'), auto !important;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+/* Custom Gradient Utilities */
+.bg-gradient-gold {
+    background: linear-gradient(135deg, #e2711d 0%, #ffdd00 100%);
+}
+
+.text-gradient-gold {
+    background: linear-gradient(135deg, #e2711d 0%, #ffdd00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #e2711d 0%, #ffdd00 100%);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(226, 113, 29, 0.3);
+}
+
+.btn-outline {
+    border: 2px solid #e2711d;
+    color: #e2711d;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: #e2711d;
+    color: white;
+}
+
+/* Gallery Grid Layout */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 250px);
+    gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+}
+
+.gallery-item-wide {
+    grid-column: span 1.5;
+    /* Spans slightly differently in standard CSS grid, adjusting via tailwind classes below instead for better responsive control */
+}

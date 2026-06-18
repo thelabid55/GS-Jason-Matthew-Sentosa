@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindUP - Anxiety & PTSD Consultation</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold1: '#e2711d',
+                        gold2: '#ffdd00',
+                        whiteflare: '#f8f9fa',
+                        blackflare: '#212529',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="antialiased">
+
+    <!-- Loading Screen -->
+    <div id="loader" class="fixed inset-0 z-[100] bg-whiteflare flex flex-col items-center justify-center transition-opacity duration-500">
+        <div class="w-16 h-16 border-4 border-gray-200 border-t-gold1 rounded-full animate-spin mb-4"></div>
+        <h2 class="text-2xl font-bold text-gradient-gold tracking-widest animate-pulse">MindUP.</h2>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-whiteflare/90 backdrop-blur-md border-b border-gray-200 transition-all duration-300"
+        id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#home" class="text-3xl font-bold text-gradient-gold tracking-tight">MindUP.</a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-blackflare hover:text-gold1 font-medium transition-colors">Home</a>
+                    <a href="#about" class="text-blackflare hover:text-gold1 font-medium transition-colors">About</a>
+                    <a href="#menu" class="text-blackflare hover:text-gold1 font-medium transition-colors">Menu</a>
+                    <a href="#gallery"
+                        class="text-blackflare hover:text-gold1 font-medium transition-colors">Gallery</a>
+                    <a href="#reviews"
+                        class="text-blackflare hover:text-gold1 font-medium transition-colors">Reviews</a>
+                    <a href="#contact"
+                        class="text-blackflare hover:text-gold1 font-medium transition-colors">Contact</a>
+                    <a href="#contact" class="btn-primary px-6 py-2 rounded-full font-semibold">Book Consult</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-blackflare hover:text-gold1 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 text-blackflare font-medium hover:bg-gray-50">Home</a>
+                <a href="#about" class="block px-3 py-2 text-blackflare font-medium hover:bg-gray-50">About</a>
+                <a href="#menu" class="block px-3 py-2 text-blackflare font-medium hover:bg-gray-50">Menu</a>
+                <a href="#gallery" class="block px-3 py-2 text-blackflare font-medium hover:bg-gray-50">Gallery</a>
+                <a href="#reviews" class="block px-3 py-2 text-blackflare font-medium hover:bg-gray-50">Reviews</a>
+                <a href="#contact" class="block px-3 py-2 text-blackflare font-medium hover:bg-gray-50">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Home Section (Hero) -->
+    <section id="home" class="pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                <div class="mb-12 lg:mb-0" data-aos="fade-right">
+                    <h1 class="text-5xl lg:text-6xl font-bold text-blackflare leading-tight mb-6">
+                        Find Peace & <br>
+                        <span class="text-gradient-gold">Heal Your Mind.</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8 max-w-lg leading-relaxed">
+                        MindUP is a dedicated consultation center helping individuals overcome Anxiety and Post
+                        Traumatic Stress Disorder (PTSD). Start your healing journey in a safe, welcoming environment
+                        surrounded by nature.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#menu"
+                            class="btn-primary px-8 py-3 rounded-md text-center font-semibold text-lg shadow-lg">View
+                            Schedules</a>
+                        <a href="#about"
+                            class="btn-outline px-8 py-3 rounded-md text-center font-semibold text-lg">Learn More</a>
+                    </div>
+                </div>
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-square md:aspect-[4/3] lg:aspect-square group"
+                    data-aos="fade-left" data-aos-delay="200">
+                    <!-- Image 1 -->
+                    <img id="hero-img-0" src="https://brainwavesnrc.com/wp-content/uploads/2024/03/AdobeStock_448758264-1024x683.jpeg"
+                        alt="People in a natural calm place"
+                        class="absolute inset-0 object-cover w-full h-full transform group-hover:scale-105 transition-all duration-1000 opacity-100 z-0">
+                    <!-- Image 2 -->
+                    <img id="hero-img-1" src="https://static.vecteezy.com/system/resources/previews/077/964/446/non_2x/business-stress-and-man-in-office-headache-or-overworked-with-burnout-anxiety-or-accountant-japan-mature-person-and-financial-consultant-with-crisis-migraine-pain-or-frustrated-with-mistake-photo.jpg"
+                        alt="Beautiful calm nature"
+                        class="absolute inset-0 object-cover w-full h-full transform group-hover:scale-105 transition-all duration-1000 opacity-0 z-0">
+                    <!-- Image 3 -->
+                    <img id="hero-img-2" src="https://trinitythrivetherapy.com/wp-content/uploads/2022/07/Anxiety-Counselor-1024x683.jpg"
+                        alt="Peaceful mindful moment"
+                        class="absolute inset-0 object-cover w-full h-full transform group-hover:scale-105 transition-all duration-1000 opacity-0 z-0">
+                    <div class="absolute inset-0 bg-gradient-to-t from-blackflare/40 to-transparent z-10 pointer-events-none"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. About Section (Features from Wireframe 1) -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-gold1 font-semibold tracking-wider uppercase text-sm">Understanding Your Mind</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-blackflare mt-2 mb-4">Learn about Anxiety & PTSD</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto">We provide comprehensive knowledge and professional diagnosis
+                    to help you understand your symptoms and clear the path to recovery.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Feature 1 -->
+                <div class="flex gap-4" data-aos="fade-up">
+                    <div
+                        class="flex-shrink-0 w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center text-gold1 text-xl">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-blackflare mb-2">What is Anxiety?</h3>
+                        <p class="text-gray-600 leading-relaxed">Anxiety is your body's natural response to stress. We
+                            help identify triggers and teach coping mechanisms to reduce persistent feelings of fear and
+                            worry.</p>
+                    </div>
+                </div>
+                <!-- Feature 2 -->
+                <div class="flex gap-4" data-aos="fade-up">
+                    <div
+                        class="flex-shrink-0 w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center text-gold1 text-xl">
+                        <i class="fas fa-heart-pulse"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-blackflare mb-2">PTSD Symptoms</h3>
+                        <p class="text-gray-600 leading-relaxed">Recognizing the signs of Post Traumatic Stress
+                            Disorder, such as flashbacks, severe anxiety, and uncontrollable thoughts about the event,
+                            is the first step.</p>
+                    </div>
+                </div>
+                <!-- Feature 3 -->
+                <div class="flex gap-4" data-aos="fade-up">
+                    <div
+                        class="flex-shrink-0 w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center text-gold1 text-xl">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-blackflare mb-2">Natural Environment</h3>
+                        <p class="text-gray-600 leading-relaxed">Our therapy includes grounding exercises in natural
+                            environments, proven to lower heart rates and significantly reduce stress hormones.</p>
+                    </div>
+                </div>
+                <!-- Feature 4 -->
+                <div class="flex gap-4" data-aos="fade-up">
+                    <div
+                        class="flex-shrink-0 w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center text-gold1 text-xl">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-blackflare mb-2">Professional Care</h3>
+                        <p class="text-gray-600 leading-relaxed">Consult with certified therapists who specialize in
+                            trauma and cognitive behavioral therapy designed specifically for lasting mental wellness.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Menu Section (Pricing from Wireframe 1) -->
+    <section id="menu" class="py-20 bg-whiteflare border-y border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-gold1 font-semibold tracking-wider uppercase text-sm">Consultation Menu</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-blackflare mt-2 mb-4">Choose Your Treatment Plan</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto">Select a schedule and consultation package that fits your
+                    needs. Transparent pricing for professional care.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-shadow duration-300 relative overflow-hidden group"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div
+                        class="absolute top-0 left-0 w-full h-1 bg-gray-200 group-hover:bg-gradient-gold transition-colors duration-300">
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-500 text-center mb-2">Initial Assessment</h3>
+                    <div class="text-center mb-6">
+                        <span class="text-3xl font-bold text-blackflare">Rp 500.000</span>
+                        <span class="text-gray-500">/session</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 text-gray-600 text-sm">
+                        <li class="flex items-start"><i class="fas fa-check text-gold1 mt-1 mr-2"></i> 1-Hour
+                            Consultation</li>
+                        <li class="flex items-start"><i class="fas fa-check text-gold1 mt-1 mr-2"></i> Anxiety/PTSD
+                            Screening</li>
+                        <li class="flex items-start"><i class="fas fa-check text-gold1 mt-1 mr-2"></i> Basic treatment
+                            recommendation</li>
+                    </ul>
+                    <a href="#contact"
+                        class="block w-full text-center py-3 border border-gray-300 rounded-md font-semibold text-blackflare hover:bg-gray-50 transition-colors">Book
+                        Schedule</a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white border-2 border-gold1 rounded-xl p-8 shadow-xl relative overflow-hidden transform md:-translate-y-4"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="absolute top-0 right-0 bg-gradient-gold text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+                        POPULAR</div>
+                    <h3 class="text-lg font-semibold text-gray-500 text-center mb-2">Therapy Sessions</h3>
+                    <div class="text-center mb-6">
+                        <span class="text-3xl font-bold text-blackflare">Rp 1.500.000</span>
+                        <span class="text-gray-500">/week</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 text-gray-600 text-sm">
+                        <li class="flex items-start"><i class="fas fa-check text-gold1 mt-1 mr-2"></i> 2 Sessions per
+                            week</li>
+                        <li class="flex items-start"><i class="fas fa-check text-gold1 mt-1 mr-2"></i> Cognitive
+                            Behavioral Therapy</li>
+                        <li class="flex items-start"><i class="fas fa-check text-gold1 mt-1 mr-2"></i> 24/7 Chat Support
+                        </li>
+                        <li class="flex items-start"><i class="fas fa-check text-gold1 mt-1 mr-2"></i> Nature Walk
+                            Integration</li>
+                    </ul>
+                    <a href="#contact" class="block w-full text-center py-3 btn-primary rounded-md font-semibold">Book
+                        Schedule</a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-shadow duration-300 relative overflow-hidden group"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div
+                        class="absolute top-0 left-0 w-full h-1 bg-gray-200 group-hover:bg-gradient-gold transition-colors duration-300">
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-500 text-center mb-2">Full Treatment Program</h3>
+                    <div class="text-center mb-6">
+                        <span class="text-3xl font-bold text-blackflare">Rp 5.000.000</span>
+                        <span class="text-gray-500">/month</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 text-gray-600 text-sm">
+                        <li class="flex items-start"><i class="fas fa-check text-gold1 mt-1 mr-2"></i> Unlimited
+                            Consultations</li>
+                        <li class="flex items-start"><i class="fas fa-check text-gold1 mt-1 mr-2"></i> Dedicated Lead
+                            Therapist</li>
+                        <li class="flex items-start"><i class="fas fa-check text-gold1 mt-1 mr-2"></i> Complete PTSD
+                            Workshop</li>
+                        <li class="flex items-start"><i class="fas fa-check text-gold1 mt-1 mr-2"></i> Family Counseling
+                            Included</li>
+                    </ul>
+                    <a href="#contact"
+                        class="block w-full text-center py-3 border border-gray-300 rounded-md font-semibold text-blackflare hover:bg-gray-50 transition-colors">Book
+                        Schedule</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Gallery Section (Image Showcase from Wireframe 2) -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-blackflare">Our Healing Environment</h2>
+                <p class="text-gray-500 mt-4 max-w-2xl mx-auto">Take a look at our consultation spaces, clients
+                    experiencing peace, and the serene nature locations we use for treatment.</p>
+            </div>
+
+            <!-- CSS Grid matching wireframe 2 exactly -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[250px]">
+                <!-- Top Row: 3 tall/square images -->
+                <div class="bg-gray-200 rounded-lg overflow-hidden group" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://glenwooddentalcare.ca/wp-content/uploads/2025/11/compassionate-dental-care-easing-anxiety-west-edmonton-1024x585.webp"
+                        alt="Therapy session"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="bg-gray-200 rounded-lg overflow-hidden group" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1528716321680-815a8cdb8cbe?auto=format&fit=crop&w=600&q=80"
+                        alt="Calm environment"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="bg-gray-200 rounded-lg overflow-hidden group" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://www.shalanicely.com/nitropack_static/GKMuLEVfnxbaFnFgEGjwAHTosbLUjGnv/assets/images/optimized/rev-8931bf2/www.shalanicely.com/wp-content/uploads/2024/05/Managing-climate-anxiety.png"
+                        alt="Consultation"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                </div>
+
+                <!-- Bottom Row: 2 wide images -->
+                <div class="md:col-span-2 bg-gray-200 rounded-lg overflow-hidden group" data-aos="zoom-in"
+                    data-aos-delay="400">
+                    <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1000&q=80"
+                        alt="Nature wide"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="bg-gray-200 rounded-lg overflow-hidden group" data-aos="zoom-in" data-aos-delay="500">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWXruUErGHpeVcgh9EGjAOpQd0B_u0AKasxQ&s"
+                        alt="Support Group"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Reviews Section (Testimonials from Wireframe 2) -->
+    <section id="reviews" class="py-20 bg-whiteflare">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-blackflare">Client Stories</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                    <p class="text-gray-600 mb-6 italic leading-relaxed">"MindUP completely changed my perspective. The
+                        natural environment approach combined with their understanding of PTSD symptoms finally gave me
+                        the tools to cope. I feel like I have my life back."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4 overflow-hidden">
+                            <img src="https://ui-avatars.com/api/?name=Sarah+J&background=e2711d&color=fff" alt="Avatar"
+                                class="w-full h-full">
+                        </div>
+                        <div>
+                            <h4 class="text-blackflare font-bold text-sm">Sarah Jenkins</h4>
+                            <p class="text-gray-500 text-xs">Recovering Patient</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+                    <p class="text-gray-600 mb-6 italic leading-relaxed">"The therapists here truly listen. Before
+                        finding MindUP, my anxiety was unmanageable. The structured consultation menu let me pick a
+                        schedule that wasn't overwhelming, and the results are undeniable."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4 overflow-hidden">
+                            <img src="https://ui-avatars.com/api/?name=Michael+T&background=ffdd00&color=212529"
+                                alt="Avatar" class="w-full h-full">
+                        </div>
+                        <div>
+                            <h4 class="text-blackflare font-bold text-sm">Michael Torres</h4>
+                            <p class="text-gray-500 text-xs">Anxiety Program</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+                    <p class="text-gray-600 mb-6 italic leading-relaxed">"A modern, clean, and friendly center. I felt
+                        authority and warmth from the moment I walked in. They mapped out a clear treatment plan for my
+                        trauma that made the healing process feel achievable."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4 overflow-hidden">
+                            <img src="https://ui-avatars.com/api/?name=Emily+R&background=212529&color=fff" alt="Avatar"
+                                class="w-full h-full">
+                        </div>
+                        <div>
+                            <h4 class="text-blackflare font-bold text-sm">Emily Rodriguez</h4>
+                            <p class="text-gray-500 text-xs">Full Treatment Client</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+
+                <!-- Contact Form -->
+                <div data-aos="fade-right">
+                    <span class="text-gold1 font-semibold tracking-wider uppercase text-sm">Reach Out</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-blackflare mt-2 mb-6">Contact The Consultant</h2>
+                    <p class="text-gray-500 mb-8">Send us a message to schedule your treatment, ask questions about
+                        anxiety/PTSD, or learn more about our facility.</p>
+
+                    <form class="space-y-6"
+                        onsubmit="event.preventDefault(); alert('Message sent! Our consultant will contact you shortly.');">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                                <input type="text" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold1 focus:border-gold1 outline-none transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                                <input type="text" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold1 focus:border-gold1 outline-none transition-colors">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold1 focus:border-gold1 outline-none transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Message / Consultation
+                                Request</label>
+                            <textarea rows="4" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold1 focus:border-gold1 outline-none transition-colors"></textarea>
+                        </div>
+                        <button type="submit" class="w-full btn-primary py-3 rounded-md font-bold text-lg">Send
+                            Message</button>
+                    </form>
+                </div>
+
+                <!-- Location & Socials -->
+                <div class="flex flex-col h-full" data-aos="fade-left" data-aos-delay="200">
+                    <div class="bg-gray-100 rounded-xl overflow-hidden h-64 md:h-80 w-full mb-8">
+                        <!-- Google Maps Embed -->
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.5!2d106.626283!3d-6.2651635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69fc807d13be17%3A0xd20de0bb8ea12142!2sJl.%20Alicante%20Timur%205%20Blok%20AT5%20No.2%2C%20Medang%2C%20Kec.%20Pagedangan%2C%20Kabupaten%20Tangerang%2C%20Banten%2015334!5e0!3m2!1sen!2sid!4v1718600000000!5m2!1sen!2sid"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-auto">
+                        <div>
+                            <h4 class="text-lg font-bold text-blackflare mb-3">Our Location</h4>
+                            <p class="text-gray-600 mb-1"><i class="fas fa-map-marker-alt text-gold1 w-5"></i> Alicante
+                                timur 5 no 2 </p>
+                            <p class="text-gray-600 mb-1 pl-5">Gading serpong, Jakarta</p>
+                            <p class="text-gray-600 mb-1 mt-3"><i class="fas fa-phone text-gold1 w-5"></i> +62
+                                812-8424-3830</p>
+                            <p class="text-gray-600"><i class="fas fa-envelope text-gold1 w-5"></i>MindUP.co@gmail.com
+                            </p>
+                        </div>
+
+                        <div>
+                            <h4 class="text-lg font-bold text-blackflare mb-3">Follow Us</h4>
+                            <p class="text-gray-600 mb-4">Stay connected for daily mental health tips and community
+                                support.</p>
+                            <div class="flex space-x-4">
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-blackflare hover:bg-gold1 hover:text-white transition-colors duration-300">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-blackflare hover:bg-gold1 hover:text-white transition-colors duration-300">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-blackflare hover:bg-gold1 hover:text-white transition-colors duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blackflare text-whiteflare py-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <span class="text-2xl font-bold tracking-tight">MindUP.</span>
+                <p class="text-sm text-gray-400 mt-1">&copy; 2026 MindUP Consultation. All rights reserved.</p>
+            </div>
+            <div class="flex space-x-6 text-sm text-gray-400">
+                <a href="#" class="hover:text-gold2 transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-gold2 transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
